@@ -2,46 +2,63 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMPUS-Mini | Tambah Anggota</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"SF Pro Display"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>SIMPUS-Mini</h1>
+    <header class="border-b border-neutral-700 p-2 px-4 mb-6 flex flex-row justify-between sticky top-0 backdrop-blur-sm z-50">
+        <h1 class="text-2xl font-bold">
+            <span class="text-emerald-300">SIMPUS</span>
+            <span class="text-orange-500">/</span>
+            mini
+        </h1>
         <nav>
-            <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="../buku/list.html">Daftar Buku</a></li>
-                <li><a href="../buku/tambah.html">Tambah Buku</a></li>
-                <li><a href="list.html">Daftar Anggota</a></li>
-                <li><a href="tambah.html">Tambah Anggota</a></li>
+            <ul class="flex space-x-4 mt-1">
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../index.html">Beranda</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/list.html">Daftar Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/tambah.html">Tambah Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="list.html">Daftar Anggota</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="tambah.html">Tambah Anggota</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Tambah Anggota</h2>
+    <main class="min-h-screen p-8 flex flex-col items-center">
+        <section class="max-w-xl w-full p-6 border border-neutral-700 rounded-2xl bg-zinc-950">
+            <h2 class="text-3xl font-bold mb-6 text-center">Tambah Anggota</h2>
             <form>
-                <p>
-                    <label for="nama">Nama</label><br>
-                    <input type="text" id="nama" name="nama" required>
-                </p>
-                <p>
-                    <label for="no_anggota">No. Anggota</label><br>
-                    <input type="text" id="no_anggota" name="no_anggota" required>
-                </p>
-                <p>
-                    <label for="alamat">Alamat</label><br>
-                    <input type="text" id="alamat" name="alamat">
-                </p>
-                <p>
-                    <label for="no_hp">No. HP</label><br>
-                    <input type="text" id="no_hp" name="no_hp">
-                </p>
-                <p>
-                    <button type="submit">Simpan</button>
-                </p>
+                <div>
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                </div>
+                <div>
+                    <label for="no_anggota">No. Anggota</label>
+                    <input type="text" id="no_anggota" name="no_anggota" required placeholder="Contoh: A003">
+                </div>
+                <div>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat domisili">
+                </div>
+                <div>
+                    <label for="no_hp">No. HP</label>
+                    <input type="text" id="no_hp" name="no_hp" placeholder="Contoh: 08123456789">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="btn-submit">Simpan</button>
+                </div>
             </form>
         </section>
     </main>

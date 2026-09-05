@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <title>SIMPUS-Mini | Daftar Anggota</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"SF Pro Display"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>SIMPUS-Mini</h1>
+    <header class="border-b border-neutral-700 p-2 px-4 mb-6 flex flex-row justify-between sticky top-0 backdrop-blur-sm z-50">
+        <h1 class="text-2xl font-bold">
+            <span class="text-emerald-300">SIMPUS</span>
+            <span class="text-orange-500">/</span>
+            mini
+        </h1>
         <nav>
-            <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="../buku/list.html">Daftar Buku</a></li>
-                <li><a href="../buku/tambah.html">Tambah Buku</a></li>
-                <li><a href="list.html">Daftar Anggota</a></li>
-                <li><a href="tambah.html">Tambah Anggota</a></li>
+            <ul class="flex space-x-4 mt-1">
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../index.html">Beranda</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/list.html">Daftar Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/tambah.html">Tambah Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="list.html">Daftar Anggota</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="tambah.html">Tambah Anggota</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Daftar Anggota</h2>
+    <main class="min-h-screen p-8">
+        <section class="max-w-4xl mx-auto p-4 flex flex-col items-center">
+            <h2 class="text-3xl font-bold mb-4">Daftar Anggota</h2>
             <table>
                 <thead>
                     <tr>
@@ -39,8 +55,8 @@
                         <td>Malang</td>
                         <td>0812xxxx</td>
                         <td>
-                            <button type="button">Edit</button>
-                            <button type="button">Hapus</button>
+                            <button type="button" class="btn-edit">Edit</button>
+                            <button type="button" class="btn-delete">Hapus</button>
                         </td>
                     </tr>
                     <tr>
@@ -49,8 +65,8 @@
                         <td>Batu</td>
                         <td>0813xxxx</td>
                         <td>
-                            <button type="button">Edit</button>
-                            <button type="button">Hapus</button>
+                            <button type="button" class="btn-edit">Edit</button>
+                            <button type="button" class="btn-delete">Hapus</button>
                         </td>
                     </tr>
                 </tbody>
