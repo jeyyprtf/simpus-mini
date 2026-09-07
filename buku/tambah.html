@@ -18,64 +18,93 @@
         }
     </script>
 </head>
-<body>
-    <header class="border-b border-neutral-700 p-2 px-4 mb-6 flex flex-row justify-between sticky top-0 backdrop-blur-sm z-50">
+<body class="bg-black text-stone-100">
+    <!-- Blur diletakkan di before: (bukan elemen header) karena backdrop-filter
+         pada elemen leluhur membuat containing block yang merusak posisi fixed sidebar. -->
+    <header class="relative isolate border-b border-white/10
+                   before:absolute before:inset-0 before:-z-10 before:bg-white/5 before:backdrop-blur-md
+                   p-2 px-4 mb-6 flex flex-row justify-between sticky top-0 z-50">
+
         <h1 class="text-2xl font-bold">
             <span class="text-emerald-300">SIMPUS</span>
             <span class="text-orange-500">/</span>
             mini
         </h1>
-        <nav>
-            <ul class="flex space-x-4 mt-1">
+        <nav class="relative flex items-center">
+            <!-- nav normal buat tablet/desktop -->
+            <ul class="hidden md:flex space-x-4 mt-1">
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="../index.html">Beranda</a></li>
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="list.html">Daftar Buku</a></li>
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="tambah.html">Tambah Buku</a></li>
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="../anggota/list.html">Daftar Anggota</a></li>
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="../anggota/tambah.html">Tambah Anggota</a></li>
             </ul>
+
+            <!-- checkbox hack -->
+            <input type="checkbox" id="nav-toggle" class="peer sr-only md:hidden" aria-label="Buka atau tutup menu navigasi" aria-controls="mobile-nav">
+            <label for="nav-toggle" class="md:hidden text-2xl cursor-pointer select-none peer-focus-visible:outline peer-focus-visible:outline-emerald-300">☰</label>
+
+            <!-- dropdown khusus mobile -->
+            <ul id="mobile-nav" class="fixed inset-y-0 right-0 w-1/2
+                       translate-x-full peer-checked:translate-x-0
+                       invisible peer-checked:visible
+                       md:hidden flex flex-col gap-6 p-6 text-right
+                       transition-all duration-300 z-40 top-10 border border-white/40 rounded-l-3xl backdrop-blur-sm bg-white/[0.05] shadow-lg">
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../index.html">Beranda</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="list.html">Daftar Buku</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="tambah.html">Tambah Buku</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../anggota/list.html">Daftar Anggota</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../anggota/tambah.html">Tambah Anggota</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="min-h-screen p-8 flex flex-col items-center">
-        <section class="max-w-xl w-full p-6 border border-neutral-700 rounded-2xl bg-zinc-950">
+    <main class="min-h-screen p-4 md:p-8 w-full flex flex-col items-center">
+        <section class="max-w-xl w-full p-6 md:p-8 border rounded-3xl border-white/40 bg-white/[0.05] backdrop-blur-sm shadow-lg">
             <h2 class="text-3xl font-bold mb-6 text-center">Tambah Buku</h2>
-            <form>
-                <div>
-                    <label for="judul">Judul</label>
-                    <input type="text" id="judul" name="judul" required placeholder="Masukkan judul buku">
+            <form class="">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="judul" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Judul</label>
+                    <input type="text" id="judul" name="judul" required placeholder="Masukkan judul buku"
+                           class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200">
                 </div>
-                <div>
-                    <label for="pengarang">Pengarang</label>
-                    <input type="text" id="pengarang" name="pengarang" required placeholder="Masukkan nama pengarang">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="pengarang" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Pengarang</label>
+                    <input type="text" id="pengarang" name="pengarang" required placeholder="Masukkan nama pengarang"
+                           class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200">
                 </div>
-                <div>
-                    <label for="tahun">Tahun Terbit</label>
-                    <input type="number" id="tahun" name="tahun" min="1900" max="2026" required placeholder="Contoh: 2024">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="tahun" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Tahun Terbit</label>
+                    <input type="number" id="tahun" name="tahun" min="1900" max="2026" required placeholder="Contoh: 2024"
+                           class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200">
                 </div>
-                <div>
-                    <label for="isbn">ISBN</label>
-                    <input type="text" id="isbn" name="isbn" placeholder="Contoh: 978-602-xxx">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="isbn" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">ISBN</label>
+                    <input type="text" id="isbn" name="isbn" placeholder="Contoh: 978-602-xxx"
+                           class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200">
                 </div>
-                <div>
-                    <label for="stok">Stok</label>
-                    <input type="number" id="stok" name="stok" min="0" required placeholder="Jumlah stok">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="stok" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Stok</label>
+                    <input type="number" id="stok" name="stok" min="0" required placeholder="Jumlah stok"
+                           class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200">
                 </div>
-                <div>
-                    <label for="kategori">Kategori</label>
-                    <select id="kategori" name="kategori">
+                <div class="flex flex-col md:gap-1.5">
+                    <label for="kategori" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Kategori</label>
+                    <select id="kategori" name="kategori"
+                            class="w-full bg-white/[0.05] border border-neutral-700 rounded-3xl px-4 py-2.5 text-stone-100 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all duration-200 cursor-pointer">
                         <option value="fiksi">Fiksi</option>
                         <option value="non-fiksi">Non-Fiksi</option>
                         <option value="referensi">Referensi</option>
                     </select>
                 </div>
-                <div class="pt-2">
-                    <button type="submit" class="btn-submit">Simpan</button>
+                <div class="pt-4">
+                    <button type="submit" class="btn-submit w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-6 rounded-3xl transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 cursor-pointer">Simpan</button>
                 </div>
             </form>
         </section>
     </main>
 
-    <footer>
+    <footer class="border-t border-neutral-700 p-2 text-center backdrop-blur-sm text-sm md:text-base bg-white/[0.05] shadow-lg">
         <p>&copy; 2026 SIMPUS-Mini &mdash; Juan Madhy (254107060050)</p>
     </footer>
 </body>

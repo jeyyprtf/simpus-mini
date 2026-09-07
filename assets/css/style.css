@@ -70,10 +70,58 @@
     font-display: swap;
 }
 
+:root {
+    --page-grid: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
 body {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #000000;
+    background-image: var(--page-grid);
+    background-size: 48px 48px;
+    background-attachment: fixed;
     color: #f5f5f4;
+}
+
+.glow-edge {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-edge::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 2px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 30%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.glow-edge-2 {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-edge-2::before {
+    content: "";    
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 2px;
+    background-image:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 30%),
+        linear-gradient(315deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 30%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 header {
@@ -85,12 +133,10 @@ header {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    backdrop-filter: blur(4px);     
-    -webkit-backdrop-filter: blur(4px);
     z-index: 50;
 }
 
-header h1 {
+/* header h1 {
     font-size: 1.5rem;               
     line-height: 2rem;
     font-weight: 700;               
@@ -130,7 +176,7 @@ h2 {
 
 .card-box {
     border: 1px solid #404040;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     padding: 1rem;
     background-color: #18181b;
     transition: all 200ms ease;
@@ -168,7 +214,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid #404040;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     overflow: hidden;
     background-color: #09090b;
 }
@@ -231,7 +277,7 @@ td {
 
 .btn-delete:hover {
     color: #ffffff;
-}
+} */
 
 /* ==========================================================================
    Form Styles (Input, Select, Label, Button)
@@ -258,7 +304,7 @@ select {
     width: 100%;
     background-color: #18181b;
     border: 1px solid #404040;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
     padding: 0.625rem 1rem;
     color: #f5f5f4;
     font-family: inherit;
@@ -284,7 +330,7 @@ select option {
     color: #000000;
     font-weight: 700;
     padding: 0.625rem 1.5rem;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
     border: none;
     cursor: pointer;
     transition: all 200ms ease;
