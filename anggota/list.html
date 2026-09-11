@@ -19,8 +19,6 @@
     </script>
 </head>
 <body class="bg-black text-stone-100">
-    <!-- Blur diletakkan di before: (bukan elemen header) karena backdrop-filter
-         pada elemen leluhur membuat containing block yang merusak posisi fixed sidebar. -->
     <header class="relative isolate border-b border-white/10
                    before:absolute before:inset-0 before:-z-10 before:bg-white/5 before:backdrop-blur-md
                    p-2 px-4 mb-6 flex flex-row justify-between sticky top-0 z-50">
@@ -31,30 +29,27 @@
             mini
         </h1>
         <nav class="relative flex items-center">
-            <!-- nav normal buat tablet/desktop -->
             <ul class="hidden md:flex space-x-4 mt-1">
-                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../index.html">Beranda</a></li>
-                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/list.html">Daftar Buku</a></li>
-                <li class="hover:text-orange-500 transition-colors duration-200"><a href="../buku/tambah.html">Tambah Buku</a></li>
-                <li class="hover:text-orange-500 transition-colors duration-200"><a href="list.html">Daftar Anggota</a></li>
-                <li class="hover:text-orange-500 transition-colors duration-200"><a href="tambah.html">Tambah Anggota</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="index.html">Beranda</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="buku/list.html">Daftar Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="buku/tambah.html">Tambah Buku</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="anggota/list.html">Daftar Anggota</a></li>
+                <li class="hover:text-orange-500 transition-colors duration-200"><a href="anggota/tambah.html">Tambah Anggota</a></li>
             </ul>
 
-            <!-- checkbox hack -->
             <input type="checkbox" id="nav-toggle" class="peer sr-only md:hidden" aria-label="Buka atau tutup menu navigasi" aria-controls="mobile-nav">
             <label for="nav-toggle" class="md:hidden text-2xl cursor-pointer select-none peer-focus-visible:outline peer-focus-visible:outline-emerald-300">☰</label>
 
-            <!-- dropdown khusus mobile -->
             <ul id="mobile-nav" class="fixed inset-y-0 right-0 w-1/2
                        translate-x-full peer-checked:translate-x-0
                        invisible peer-checked:visible
                        md:hidden flex flex-col gap-6 p-6 text-right
                        transition-all duration-300 z-40 top-10 border border-white/40 rounded-l-3xl backdrop-blur-sm bg-white/[0.05] shadow-lg">
-                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../index.html">Beranda</a></li>
-                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../buku/list.html">Daftar Buku</a></li>
-                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../buku/tambah.html">Tambah Buku</a></li>
-                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="list.html">Daftar Anggota</a></li>
-                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="tambah.html">Tambah Anggota</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="index.html">Beranda</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="buku/list.html">Daftar Buku</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="buku/tambah.html">Tambah Buku</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="anggota/list.html">Daftar Anggota</a></li>
+                <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="anggota/tambah.html">Tambah Anggota</a></li>
             </ul>
         </nav>
     </header>
@@ -63,7 +58,7 @@
         <section class="w-full lg:max-w-4xl mx-auto md:p-4 flex flex-col items-center">
             <h2 class="text-3xl font-bold mb-4">Daftar Anggota</h2>
             <div class="w-full overflow-x-auto table-responsive border rounded-3xl border-white/40 bg-white/[0.05] backdrop-blur-sm shadow-lg">
-                <table class="min-w-full divide-y divide-neutral-700 border border-neutral-700 rounded-3xl overflow-hidden md:p-4 text-sm md:text-base">
+                <table class="min-w-full divide-y divide-neutral-700 border border-neutral-700 rounded-3xl overflow-hidden md:p-4 md:text-base">
                     <thead class="text-center font-bold md:text-xl">
                         <tr class="divide-x divide-neutral-700 divide-x-2">
                             <th class="py-2 md:p-4">No. Anggota</th>
@@ -73,7 +68,7 @@
                             <th class="py-2 md:p-4">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-neutral-800 text-center md:text-left text-xs md:text-lg">
+                    <tbody class="divide-y divide-neutral-800 text-center md:text-left">
                         <tr class="divide-x divide-neutral-700 divide-x-2">
                             <td class="p-2 md:px-4 md:py-4">A001</td>
                             <td class="p-2 md:px-4 md:py-4">Juan Madhy</td>
