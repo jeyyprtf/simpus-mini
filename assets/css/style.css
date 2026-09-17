@@ -340,3 +340,16 @@ select option {
 .btn-submit:hover {
     background-color: #34d399;
 }
+
+#mobile-nav.nav-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.error {
+    display: block;
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+}

@@ -39,12 +39,10 @@
                 <li class="hover:text-orange-500 transition-colors duration-200"><a href="../anggota/tambah.html">Tambah Anggota</a></li>
             </ul>
 
-            <input type="checkbox" id="nav-toggle" class="peer sr-only md:hidden" aria-label="Buka atau tutup menu navigasi" aria-controls="mobile-nav">
-            <label for="nav-toggle" class="md:hidden text-2xl cursor-pointer select-none peer-focus-visible:outline peer-focus-visible:outline-emerald-300">☰</label>
+            <button type="button" id="nav-toggle-btn" class="md:hidden text-2xl cursor-pointer select-none focus-visible:outline focus-visible:outline-emerald-300 bg-transparent border-none text-stone-100" aria-label="Menu" aria-controls="mobile-nav">☰</button>
 
             <ul id="mobile-nav" class="fixed inset-y-0 right-0 w-1/2
-                       translate-x-full peer-checked:translate-x-0
-                       invisible peer-checked:visible
+                       translate-x-full invisible
                        md:hidden flex flex-col gap-6 p-6 text-right
                        transition-all duration-300 z-40 top-10 border border-white/40 rounded-l-3xl backdrop-blur-sm bg-white/[0.05] shadow-lg">
                 <li class="hover:text-orange-500 transition-all duration-200 font-bold"><a href="../index.html">Beranda</a></li>
@@ -59,7 +57,7 @@
     <main class="min-h-screen p-4 md:p-8 w-full flex flex-col items-center">
         <section class="max-w-xl w-full p-6 md:p-8 border rounded-3xl border-white/40 bg-white/[0.05] backdrop-blur-sm shadow-lg">
             <h2 class="text-3xl font-bold mb-6 text-center">Tambah Buku</h2>
-            <form class="">
+            <form id="form-tambah" novalidate>
                 <div class="flex flex-col md:gap-1.5">
                     <label for="judul" class="text-sm md:text-lg font-semibold text-neutral-300 pl-4">Judul</label>
                     <input type="text" id="judul" name="judul" required placeholder="Masukkan judul buku"
@@ -104,5 +102,6 @@
     <footer class="border-t border-neutral-700 p-2 text-center backdrop-blur-sm text-sm md:text-base bg-white/[0.05] shadow-lg">
         <p>&copy; 2026 SIMPUS-Mini &mdash; Juan Madhy (254107060050)</p>
     </footer>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
