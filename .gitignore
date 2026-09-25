@@ -1,4 +1,9 @@
+.env
+.env.*
+!.env.example
 .vscode/
 .DS_Store
 Thumbs.db
-*.tmp
+*.log
+vendor/
+storage/
